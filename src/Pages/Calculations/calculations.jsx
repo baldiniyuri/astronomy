@@ -1,9 +1,9 @@
 import "../../App.css";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Button } from "antd";
+import { motion } from "framer-motion";
 
-const Home = () => {
+const Calculations = () => {
   return (
     <div className="App">
       <motion.div
@@ -14,7 +14,7 @@ const Home = () => {
       >
         <header className="App">
           <div>
-            <div>Home</div>
+            <div>Astronomical Calculations</div>
             <div>
               <Button>
                 <Link to="/astronomy">Astronomy</Link>
@@ -23,7 +23,7 @@ const Home = () => {
                 <Link to="/earth">Earth</Link>
               </Button>
               <Button>
-                <Link to="/calculations">Calculations</Link>
+                <Link to="/">Home</Link>
               </Button>
             </div>
           </div>
@@ -32,4 +32,5 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+
+export default Calculations;

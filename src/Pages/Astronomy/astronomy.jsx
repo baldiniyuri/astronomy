@@ -68,6 +68,9 @@ const Astronomy = () => {
             <Button>
               <Link to="/">Home</Link>
             </Button>
+            <Button>
+              <Link to="/calculations">Calculations</Link>
+            </Button>
           </div>
           <div>
             <Button onClick={displayAstronomy}>Display Astronomy Image</Button>{" "}

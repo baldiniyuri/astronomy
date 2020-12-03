@@ -73,6 +73,9 @@ const Earth = () => {
               <Button>
                 <Link to="/">Home</Link>
               </Button>
+              <Button>
+                <Link to="/calculations">Calculations</Link>
+              </Button>
             </div>
 
             <div>
