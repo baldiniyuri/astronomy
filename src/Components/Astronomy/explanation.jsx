@@ -1,7 +1,0 @@
-import React from "react";
-
-const Explanation = (props) => {
-  return <div>{props.data}</div>;
-};
-
-export default Explanation;

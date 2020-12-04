@@ -3,39 +3,23 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button, DatePicker } from "antd";
-import Copyright from "../../Components/Astronomy/copyright";
-import Dates from "../../Components/Astronomy/date";
-import Explanation from "../../Components/Astronomy/explanation";
-import Image from "../../Components/Astronomy/image";
-import axios from "axios";
+import AstronomyList from "../../Components/Astronomy/astronomylist";
+import { getAstronomyPhotoThank } from "../../Store/Modules/Astronomy/thunk";
+import { useDispatch } from "react-redux";
 
 const Astronomy = () => {
   //**********************************************Variables Declarations *******************************************************/
   //***********************************************Astronomy VARIABLES**********************************************************/
+  const dispatch = useDispatch();
   const actualDate = new Date();
-  const [copyright, setCopyright] = useState("");
-  const [explanation, setExplanation] = useState("");
-  const [date, setDate] = useState("");
-  const [image, setImage] = useState("");
   const [hide, setHide] = useState(false);
-  //const [photodate, setPhotoDate] = useState("2019-05-30");
-  const [photodate, setPhotoDate] = useState(
+  const [photoDate, setPhotoDate] = useState(
     `${actualDate.getFullYear()}-${actualDate.getMonth()}-${actualDate.getDay()}`
   );
-  const [next, setNext] = useState([0]);
-  //****************************************************Function ***************************************************************/
+  const [error, setError] = useState(false);
+  //****************************************************Functions***************************************************************/
   const getAstronomyPhoto = () => {
-    axios
-      .get(
-        `https://api.nasa.gov/planetary/apod?api_key=RXnQpL6F3FIuJMrXfJzIvdcmaog26ygvqegMSCfs&date=${photodate}`
-      )
-      .then((info) => {
-        setCopyright(info.data.copyright);
-        setExplanation(info.data.explanation);
-        setDate(info.data.date);
-        setImage(info.data.url);
-      })
-      .catch((error) => console.log(error));
+    dispatch(getAstronomyPhotoThank(photoDate, setError));
   };
 
   const displayAstronomy = () => {
@@ -47,10 +31,11 @@ const Astronomy = () => {
   };
 
   const changeDate = () => {
+    setError(false);
     const aux = document.getElementById("photodate").value;
     setPhotoDate(aux);
-    setNext(0);
   };
+
   return (
     <div className="App">
       <motion.div
@@ -84,15 +69,15 @@ const Astronomy = () => {
             <Button onClick={changeDate}>Change Date!</Button>
             <DatePicker id="photodate"></DatePicker>
           </div>
+          {error ? (
+            <div>
+              Image not found, this often happens when there is no photos at
+              this date, try another one.
+            </div>
+          ) : null}
           {hide ? (
             <div id="info">
-              <div>
-                <Image data={image} />
-                <br />
-                <Copyright data={copyright} /> <Dates data={date} />
-              </div>
-              <br />
-              <Explanation data={explanation} />
+              <AstronomyList />
             </div>
           ) : (
             <div>

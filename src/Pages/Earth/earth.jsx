@@ -3,20 +3,19 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button, DatePicker } from "antd";
 import { useState } from "react";
-import Caption from "../../Components/Earth/caption";
-import Photo from "../../Components/Earth/photo";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import "../../Style/earth.css";
+import getEarthPhotoThank from "../../Store/Modules/Earth/thank";
+import EarthList from "../../Components/Earth/earthlist";
 
 const Earth = () => {
   //***********************************************EARTH VARIABLES**************************************************************/
   const actualDate = new Date();
-  const [caption, setCaption] = useState("");
-  const [photo, setPhoto] = useState("");
+  const dispatch = useDispatch();
   const [hideEarth, setHideEarth] = useState(false);
   const [next, setNext] = useState([0]);
-  // const [photodate, setPhotoDate] = useState("2019-05-30");
-  const [photodate, setPhotoDate] = useState(
+  const [error, setError] = useState(false);
+  const [photoDate, setPhotoDate] = useState(
     `${actualDate.getFullYear()}-${actualDate.getMonth()}-${actualDate.getDay()}`
   );
   let counter = 0;
@@ -24,15 +23,7 @@ const Earth = () => {
   //****************************************************** Functions ************************************************************/
 
   const getEarthPhoto = () => {
-    axios
-      .get(
-        `https://api.nasa.gov/EPIC/api/natural/date/${photodate}?api_key=RXnQpL6F3FIuJMrXfJzIvdcmaog26ygvqegMSCfs`
-      )
-      .then((info) => {
-        setCaption(info.data[next].caption);
-        setPhoto(info.data[next].image);
-      })
-      .catch((error) => console.log(error));
+    dispatch(getEarthPhotoThank(photoDate, setError));
   };
 
   const displayEarth = () => {
@@ -88,12 +79,15 @@ const Earth = () => {
               <Button onClick={changeDate}>Set Date!</Button>
               <DatePicker type="date" id="photodate"></DatePicker>
             </div>
+            {error ? (
+              <div>
+                Image not found, this often happens when there is no photos at
+                this date, try another one.
+              </div>
+            ) : null}
             {hideEarth ? (
               <div id="info">
-                <div>
-                  <Photo data={photo} date={photodate} />
-                </div>
-                <Caption data={caption} />
+                <EarthList photoDate={photoDate} />
               </div>
             ) : (
               <div>
