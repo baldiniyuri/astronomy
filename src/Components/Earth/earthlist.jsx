@@ -1,9 +1,8 @@
 import EarthRender from "./earthrender";
 import { useSelector } from "react-redux";
 
-const EarthList = (photoDate) => {
+const EarthList = (photoDate, next) => {
   const earthPhotos = useSelector((state) => state.photoEarth);
-  console.log("arrayEarth", earthPhotos);
 
   return (
     <div>

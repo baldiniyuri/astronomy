@@ -6,6 +6,7 @@ import { Button, DatePicker } from "antd";
 import AstronomyList from "../../Components/Astronomy/astronomylist";
 import { getAstronomyPhotoThank } from "../../Store/Modules/Astronomy/thunk";
 import { useDispatch } from "react-redux";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 const Astronomy = () => {
   //**********************************************Variables Declarations *******************************************************/
@@ -17,6 +18,7 @@ const Astronomy = () => {
     `${actualDate.getFullYear()}-${actualDate.getMonth()}-${actualDate.getDay()}`
   );
   const [error, setError] = useState(false);
+  const [next, setNext] = useState(0);
   //****************************************************Functions***************************************************************/
   const getAstronomyPhoto = () => {
     dispatch(getAstronomyPhotoThank(photoDate, setError));
@@ -36,6 +38,22 @@ const Astronomy = () => {
     setPhotoDate(aux);
   };
 
+  const nextPhoto = () => {
+    if (next === 31) {
+      return;
+    }
+    setNext(next + 1);
+    console.log(next);
+  };
+
+  const prevPhoto = () => {
+    if (next === 0) {
+      return;
+    }
+    setNext(next - 1);
+    console.log(next);
+  };
+
   return (
     <div className="App">
       <motion.div
@@ -49,25 +67,31 @@ const Astronomy = () => {
           <div>
             <Button>
               <Link to="/earth">Earth</Link>
-            </Button>
+            </Button>{" "}
             <Button>
               <Link to="/">Home</Link>
-            </Button>
+            </Button>{" "}
             <Button>
               <Link to="/calculations">Calculations</Link>
             </Button>
           </div>
           <div>
-            <Button onClick={displayAstronomy}>Display Astronomy Image</Button>{" "}
+            <Button onClick={prevPhoto}>
+              <ArrowLeftOutlined />
+              Prev Photo!
+            </Button>{" "}
+            <Button onClick={displayAstronomy}>
+              Display Astronomy Image
+            </Button>{" "}
             <Button onClick={getAstronomyPhoto}>
               Get Astronomy Photo of the Day!
             </Button>{" "}
-            {/*<button class="menuButtons" onClick={nextPhoto}>
-            Next Photo!
-          </button>
-  */}
-            <Button onClick={changeDate}>Change Date!</Button>
-            <DatePicker id="photodate"></DatePicker>
+            <Button onClick={changeDate}>Change Date!</Button>{" "}
+            <DatePicker id="photodate"></DatePicker>{" "}
+            <Button onClick={nextPhoto}>
+              Next Photo!
+              <ArrowRightOutlined />
+            </Button>
           </div>
           {error ? (
             <div>

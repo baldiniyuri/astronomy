@@ -7,18 +7,18 @@ import { useDispatch } from "react-redux";
 import "../../Style/earth.css";
 import getEarthPhotoThank from "../../Store/Modules/Earth/thank";
 import EarthList from "../../Components/Earth/earthlist";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 const Earth = () => {
   //***********************************************EARTH VARIABLES**************************************************************/
   const actualDate = new Date();
   const dispatch = useDispatch();
   const [hideEarth, setHideEarth] = useState(false);
-  const [next, setNext] = useState([0]);
+  const [next, setNext] = useState(0);
   const [error, setError] = useState(false);
   const [photoDate, setPhotoDate] = useState(
     `${actualDate.getFullYear()}-${actualDate.getMonth()}-${actualDate.getDay()}`
   );
-  let counter = 0;
 
   //****************************************************** Functions ************************************************************/
 
@@ -35,8 +35,19 @@ const Earth = () => {
   };
 
   const nextPhoto = () => {
-    counter = counter + 1;
-    setNext(counter);
+    if (next === 31) {
+      return;
+    }
+    setNext(next + 1);
+    console.log(next);
+  };
+
+  const prevPhoto = () => {
+    if (next === 0) {
+      return;
+    }
+    setNext(next - 1);
+    console.log(next);
   };
 
   const changeDate = () => {
@@ -60,24 +71,28 @@ const Earth = () => {
             <div>
               <Button>
                 <Link to="/astronomy">Astronomy</Link>
-              </Button>
+              </Button>{" "}
               <Button>
                 <Link to="/">Home</Link>
-              </Button>
+              </Button>{" "}
               <Button>
                 <Link to="/calculations">Calculations</Link>
               </Button>
             </div>
 
             <div>
-              <Button onClick={displayEarth}>Display Earth Image</Button>
-              <Button onClick={getEarthPhoto}>Get Earth Photo!</Button>
-              {/*<button class="menuButtons" onClick={nextPhoto}>
-            Next Photo!
-          </button>
-  */}
-              <Button onClick={changeDate}>Set Date!</Button>
-              <DatePicker type="date" id="photodate"></DatePicker>
+              <Button onClick={prevPhoto}>
+                <ArrowLeftOutlined />
+                Prev Photo!
+              </Button>{" "}
+              <Button onClick={displayEarth}>Display Earth Image</Button>{" "}
+              <Button onClick={getEarthPhoto}>Get Earth Photo!</Button>{" "}
+              <Button onClick={changeDate}>Set Date!</Button>{" "}
+              <DatePicker type="date" id="photodate"></DatePicker>{" "}
+              <Button onClick={nextPhoto}>
+                Next Photo!
+                <ArrowRightOutlined />
+              </Button>
             </div>
             {error ? (
               <div>
@@ -87,7 +102,7 @@ const Earth = () => {
             ) : null}
             {hideEarth ? (
               <div id="info">
-                <EarthList photoDate={photoDate} />
+                <EarthList photoDate={photoDate} next={next} />
               </div>
             ) : (
               <div>
