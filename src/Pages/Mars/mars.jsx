@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button, DatePicker } from "antd";
-import AstronomyList from "../../Components/Astronomy/astronomylist";
-import { getAstronomyPhotoThank } from "../../Store/Modules/Astronomy/thunk";
+import MarsList from "../../Components/Mars/marslist";
+import { getMarsPhotoThank } from "../../Store/Modules/Mars/thank";
 import { useDispatch } from "react-redux";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "../../Style/astronomy.css";
@@ -12,12 +12,11 @@ import {
   GlobalOutlined,
   HomeOutlined,
   CalculatorOutlined,
-  RedditOutlined,
+  EyeOutlined,
 } from "@ant-design/icons";
+import "../../Style/mars.css";
 
-const Astronomy = () => {
-  //**********************************************Variables Declarations *******************************************************/
-  //***********************************************Astronomy VARIABLES**********************************************************/
+const Mars = () => {
   const dispatch = useDispatch();
   const actualDate = new Date();
   const [hide, setHide] = useState(false);
@@ -26,12 +25,12 @@ const Astronomy = () => {
   );
   const [error, setError] = useState(false);
   const [next, setNext] = useState(0);
-  //****************************************************Functions***************************************************************/
-  const getAstronomyPhoto = () => {
-    dispatch(getAstronomyPhotoThank(photoDate, setError));
+
+  const getMarsPhoto = () => {
+    dispatch(getMarsPhotoThank(photoDate, setError));
   };
 
-  const displayAstronomy = () => {
+  const displayMars = () => {
     if (hide === false) {
       setHide(true);
     } else {
@@ -82,22 +81,18 @@ const Astronomy = () => {
               <CalculatorOutlined />
             </Button>{" "}
             <Button>
-              <Link to="/mars">Mars</Link> <RedditOutlined />
+              <Link to="/astronomy">Astronomy </Link> <EyeOutlined />
             </Button>
           </div>
-          <div>Astronomy</div>
-          <div className="astronomyLogo"></div>
+          <div>Mars</div>
+          <div className="mars"></div>
           <div>
             <Button onClick={prevPhoto}>
               <ArrowLeftOutlined />
               Prev Photo!
             </Button>{" "}
-            <Button onClick={displayAstronomy}>
-              Display Astronomy Image
-            </Button>{" "}
-            <Button onClick={getAstronomyPhoto}>
-              Get Astronomy Photo of the Day!
-            </Button>{" "}
+            <Button onClick={displayMars}>Display Mars Image</Button>{" "}
+            <Button onClick={getMarsPhoto}>Get Mars Photo of the Day!</Button>{" "}
             <Button onClick={changeDate}>Change Date!</Button>{" "}
             <DatePicker id="photodate"></DatePicker>{" "}
             <Button onClick={nextPhoto}>
@@ -113,7 +108,7 @@ const Astronomy = () => {
           ) : null}
           {hide ? (
             <div id="info">
-              <AstronomyList />
+              <MarsList />
             </div>
           ) : (
             <div>
@@ -126,5 +121,4 @@ const Astronomy = () => {
     </div>
   );
 };
-
-export default Astronomy;
+export default Mars;

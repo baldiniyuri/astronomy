@@ -4,7 +4,12 @@ import { Button, InputNumber } from "antd";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import "../../Style/trigonometry.css";
-import { EyeOutlined, HomeOutlined, GlobalOutlined } from "@ant-design/icons";
+import {
+  EyeOutlined,
+  HomeOutlined,
+  GlobalOutlined,
+  RedditOutlined,
+} from "@ant-design/icons";
 const Calculations = () => {
   const [pure, setPure] = useState(0);
   const [hour, setHour] = useState(0);
@@ -66,6 +71,9 @@ const Calculations = () => {
               </Button>{" "}
               <Button>
                 <Link to="/">Home</Link> <HomeOutlined />
+              </Button>{" "}
+              <Button>
+                <Link to="/mars">Mars</Link> <RedditOutlined />
               </Button>{" "}
               <Button>
                 <Link to="/trigonometry">Spherical Trigonometry</Link>

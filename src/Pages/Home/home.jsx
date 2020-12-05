@@ -9,6 +9,7 @@ import {
   CalculatorOutlined,
   GithubOutlined,
   LinkedinOutlined,
+  RedditOutlined,
 } from "@ant-design/icons";
 const Home = () => {
   return (
@@ -26,16 +27,21 @@ const Home = () => {
                 <Link to="/astronomy">
                   Astronomy <EyeOutlined />
                 </Link>
-              </Button>
+              </Button>{" "}
               <Button>
                 <Link to="/earth">
                   Earth <GlobalOutlined />
                 </Link>
-              </Button>
+              </Button>{" "}
               <Button>
                 <Link to="/calculations">
                   Calculations
                   <CalculatorOutlined />
+                </Link>
+              </Button>{" "}
+              <Button>
+                <Link to="/mars">
+                  Mars <RedditOutlined />
                 </Link>
               </Button>
             </div>

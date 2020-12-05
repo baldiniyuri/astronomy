@@ -4,6 +4,7 @@ import Astronomy from "../Pages/Astronomy/astronomy";
 import Earth from "../Pages/Earth/earth";
 import Calculations from "../Pages/Calculations/calculations";
 import Trigonometry from "../Components/Calculations/trigonometry";
+import Mars from "../Pages/Mars/mars";
 
 const Routes = () => {
   return (
@@ -13,6 +14,7 @@ const Routes = () => {
       <Route exact path="/earth" component={Earth} />
       <Route exact path="/calculations" component={Calculations} />
       <Route exact path="/trigonometry" component={Trigonometry} />
+      <Route exact path="/mars" component={Mars} />
     </Switch>
   );
 };

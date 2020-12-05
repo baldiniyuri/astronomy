@@ -12,6 +12,7 @@ import {
   EyeOutlined,
   HomeOutlined,
   CalculatorOutlined,
+  RedditOutlined,
 } from "@ant-design/icons";
 const Earth = () => {
   //***********************************************EARTH VARIABLES**************************************************************/
@@ -81,6 +82,9 @@ const Earth = () => {
               <Button>
                 <Link to="/calculations">Calculations</Link>{" "}
                 <CalculatorOutlined />
+              </Button>{" "}
+              <Button>
+                <Link to="/mars">Mars</Link> <RedditOutlined />
               </Button>
             </div>
             <div>Earth</div>
