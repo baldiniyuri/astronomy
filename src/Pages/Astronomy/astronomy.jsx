@@ -7,6 +7,12 @@ import AstronomyList from "../../Components/Astronomy/astronomylist";
 import { getAstronomyPhotoThank } from "../../Store/Modules/Astronomy/thunk";
 import { useDispatch } from "react-redux";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import "../../Style/astronomy.css";
+import {
+  GlobalOutlined,
+  HomeOutlined,
+  CalculatorOutlined,
+} from "@ant-design/icons";
 
 const Astronomy = () => {
   //**********************************************Variables Declarations *******************************************************/
@@ -63,18 +69,20 @@ const Astronomy = () => {
         transition={{ duration: 2 }}
       >
         <header className="App-header">
-          <div>Astronomy</div>
           <div>
             <Button>
-              <Link to="/earth">Earth</Link>
+              <Link to="/earth">Earth</Link> <GlobalOutlined />
             </Button>{" "}
             <Button>
-              <Link to="/">Home</Link>
+              <Link to="/">Home</Link> <HomeOutlined />
             </Button>{" "}
             <Button>
-              <Link to="/calculations">Calculations</Link>
+              <Link to="/calculations">Calculations</Link>{" "}
+              <CalculatorOutlined />
             </Button>
           </div>
+          <div>Astronomy</div>
+          <div className="astronomyLogo"></div>
           <div>
             <Button onClick={prevPhoto}>
               <ArrowLeftOutlined />

@@ -8,7 +8,11 @@ import "../../Style/earth.css";
 import getEarthPhotoThank from "../../Store/Modules/Earth/thank";
 import EarthList from "../../Components/Earth/earthlist";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
-
+import {
+  EyeOutlined,
+  HomeOutlined,
+  CalculatorOutlined,
+} from "@ant-design/icons";
 const Earth = () => {
   //***********************************************EARTH VARIABLES**************************************************************/
   const actualDate = new Date();
@@ -66,20 +70,21 @@ const Earth = () => {
       >
         <header className="App">
           <div>
-            <div>Earth</div>
-
             <div>
               <Button>
-                <Link to="/astronomy">Astronomy</Link>
+                <Link to="/astronomy">Astronomy</Link> <EyeOutlined />
               </Button>{" "}
               <Button>
                 <Link to="/">Home</Link>
+                <HomeOutlined />
               </Button>{" "}
               <Button>
-                <Link to="/calculations">Calculations</Link>
+                <Link to="/calculations">Calculations</Link>{" "}
+                <CalculatorOutlined />
               </Button>
             </div>
-
+            <div>Earth</div>
+            <div className="earthLogo"></div>
             <div>
               <Button onClick={prevPhoto}>
                 <ArrowLeftOutlined />
