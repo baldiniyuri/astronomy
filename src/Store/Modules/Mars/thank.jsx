@@ -8,7 +8,7 @@ export const getMarsPhotoThank = (photoDate, setError) => (dispatch) => {
     )
     .then((info) => {
       console.log(info);
-      dispatch(getMarsPhoto(info.data));
+      dispatch(getMarsPhoto(info.data.photos));
     })
     .catch((error) => {
       console.log(error);

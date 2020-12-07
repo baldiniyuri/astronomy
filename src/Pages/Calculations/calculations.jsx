@@ -95,7 +95,7 @@ const Calculations = () => {
             <Button onClick={speedLightConverter}>Calculate</Button>
             {displayLyh ? (
               <div>
-                In {hour} hours the light travels {lyConverter} kms.
+                In {hour} hours the light travels {lyhConverter} kms.
               </div>
             ) : null}
             <br />

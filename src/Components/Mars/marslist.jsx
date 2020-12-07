@@ -7,7 +7,7 @@ const MarsList = () => {
   return (
     <div>
       {marsPhotos.map((data, index) => (
-        <MarsRender key={index} photos={data.photos.img_src} />
+        <MarsRender key={index} photos={data.img_src} />
       ))}
     </div>
   );
