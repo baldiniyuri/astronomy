@@ -2,5 +2,47 @@
   background-image: url("./Img/earth.jpg");
   width: 225px;
   height: 225px;
-  margin: 0 auto;
+  margin-left: 2%;
+}
+
+.titles-earth {
+  color: #e8f1f2;
+  text-align: center;
+  font-size: 30px;
+}
+
+.display-earth-photo {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  overflow-y: scroll;
+  max-height: 800px;
+  max-width: 100%;
+}
+
+.earth-align {
+  display: flex;
+  padding-left: 25rem;
+  padding-top: 2rem;
+}
+
+.earth-buttons {
+  margin-top: 1%;
+  padding: 0.5rem;
+  background-color: #3449e5 !important;
+  color: #e8f1f2 !important;
+  border-radius: 20% !important;
+}
+
+.earth-buttons:hover {
+  background-color: #c9c8e4 !important;
+  color: black !important;
+}
+
+.display-earth-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  background-color: black;
 }

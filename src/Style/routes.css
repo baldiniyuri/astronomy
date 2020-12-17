@@ -1,0 +1,62 @@
+.body-style {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer-style {
+  margin-top: 18.8%;
+  height: 20px;
+  background-color: black;
+}
+
+.home-header {
+  display: flex;
+
+  margin-bottom: 2%;
+  background-color: black;
+}
+
+.page-buttons {
+  margin-top: 20px;
+  background-color: #3449e5 !important;
+  color: #e8f1f2 !important;
+  border-radius: 20% !important;
+  margin-left: 1% !important;
+}
+
+.page-buttons:hover {
+  background-color: #c9c8e4 !important;
+  color: black !important;
+}
+
+.titles {
+  color: #e8f1f2;
+  text-align: center;
+  font-size: 20px;
+}
+
+.social-icons {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 20px;
+}
+
+.nasaLogo {
+  background-image: url("./Img/nasa.png");
+  width: 100px;
+  height: 100px;
+  margin-left: 2%;
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.header-align {
+  display: flex;
+  margin-left: 67%;
+}

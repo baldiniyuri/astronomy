@@ -1,6 +1,32 @@
-.nasaLogo {
-  background-image: url("./Img/nasa.png");
-  width: 225px;
-  height: 225px;
-  margin: 0 auto;
+.titles-home {
+  color: #e8f1f2;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 2%;
+}
+
+.display-home {
+  margin-right: 0%;
+}
+
+.homeLogo {
+  background-image: url("./Img/home.jpg");
+  width: 728px;
+  height: 446px;
+  margin-left: 2%;
+  background-size: 726px 446px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.home-description {
+  width: 400px;
+  color: #e8f1f2;
+  font-size: 25px;
+  padding-left: 2rem;
+}
+
+.home-align {
+  display: flex;
+  margin-left: 25%;
 }

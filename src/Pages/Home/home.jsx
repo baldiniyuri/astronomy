@@ -1,66 +1,30 @@
-import "../../App.css";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Button } from "antd";
 import "../../Style/home.css";
-import {
-  EyeOutlined,
-  GlobalOutlined,
-  CalculatorOutlined,
-  GithubOutlined,
-  LinkedinOutlined,
-  RedditOutlined,
-} from "@ant-design/icons";
+
 const Home = () => {
   return (
-    <div className="App">
+    <div>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 2 }}
       >
-        <header className="App">
-          <div>
-            <div>
-              <Button>
-                <Link to="/astronomy">
-                  Astronomy <EyeOutlined />
-                </Link>
-              </Button>{" "}
-              <Button>
-                <Link to="/earth">
-                  Earth <GlobalOutlined />
-                </Link>
-              </Button>{" "}
-              <Button>
-                <Link to="/calculations">
-                  Calculations
-                  <CalculatorOutlined />
-                </Link>
-              </Button>{" "}
-              <Button>
-                <Link to="/mars">
-                  Mars <RedditOutlined />
-                </Link>
-              </Button>
-            </div>
-            <div>The Astronomer Hide</div>
-            <div className="nasaLogo"></div>
-            <div>This app where created using Nasa API.</div>
+        <div className="titles-home">The Astronomer Hide</div>
+        <div className="home-align">
+          <div className="homeLogo"></div>
+          <div className="home-description">
+            This is a website were you can accses three diferent Nasa's API. You
+            can chose de data that you want and see our beautifull planet,
+            photos from Earth taken by de ISS, or if you preffer you can check
+            the new photos that the astronomyc comunnit has sent, or maybe you
+            preffer some amazing photos from Mars, taken by the Mars Hoover
+            Curiosity.
           </div>
-          <br />
-          <div>Social Medias</div>
-          <a
-            href="https://www.linkedin.com/in/yuri-baldini-67371918b/"
-            target="_blank"
-          >
-            <LinkedinOutlined />
-          </a>{" "}
-          <a href="https://gitlab.com/yuriabaldini" target="_blank">
-            <GithubOutlined />
-          </a>
-        </header>
+        </div>
+        <div className="display-home">
+          <div className="titles">This app were created using Nasa API.</div>
+        </div>
       </motion.div>
     </div>
   );

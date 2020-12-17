@@ -1,15 +1,8 @@
-import "../../App.css";
-import { Link } from "react-router-dom";
 import { Button, InputNumber } from "antd";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import "../../Style/trigonometry.css";
-import {
-  EyeOutlined,
-  HomeOutlined,
-  GlobalOutlined,
-  RedditOutlined,
-} from "@ant-design/icons";
+
 const Calculations = () => {
   const [pure, setPure] = useState(0);
   const [hour, setHour] = useState(0);
@@ -52,63 +45,44 @@ const Calculations = () => {
   };
 
   return (
-    <div className="App">
+    <div>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 2 }}
       >
-        <header className="App">
-          <div>
-            <div>Astronomical Calculations</div>
+        <div>
+          <div>Astronomical Calculations</div>
+          <div className="speed"></div>
+          <br />
+          <div>Light Year to Kilometer converter!</div>
+          <InputNumber id="LY" placeholder="Years"></InputNumber>{" "}
+          <Button onClick={lightYearConverter}>Calculate</Button>
+          {displayLy ? (
             <div>
-              <Button>
-                <Link to="/astronomy">Astronomy</Link> <EyeOutlined />
-              </Button>{" "}
-              <Button>
-                <Link to="/earth">Earth</Link> <GlobalOutlined />
-              </Button>{" "}
-              <Button>
-                <Link to="/">Home</Link> <HomeOutlined />
-              </Button>{" "}
-              <Button>
-                <Link to="/mars">Mars</Link> <RedditOutlined />
-              </Button>{" "}
-              <Button>
-                <Link to="/trigonometry">Spherical Trigonometry</Link>
-              </Button>
+              In {pure} years the light travels {lyConverter} kms
             </div>
-            <div className="speed"></div>
-            <br />
-            <div>Light Year to Kilometer converter!</div>
-            <InputNumber id="LY" placeholder="Years"></InputNumber>{" "}
-            <Button onClick={lightYearConverter}>Calculate</Button>
-            {displayLy ? (
-              <div>
-                In {pure} years the light travels {lyConverter} kms
-              </div>
-            ) : null}
-            <br />
-            <div>Speed of Light to kilometer per hour converter!</div>
-            <InputNumber id="LYH" placeholder="Hour"></InputNumber>{" "}
-            <Button onClick={speedLightConverter}>Calculate</Button>
-            {displayLyh ? (
-              <div>
-                In {hour} hours the light travels {lyhConverter} kms.
-              </div>
-            ) : null}
-            <br />
-            <div> Parsec to Light Year convertion</div>
-            <InputNumber id="PARSEC" placeholder="Parsec"></InputNumber>{" "}
-            <Button onClick={parsecToLightYear}>Calculate</Button>
-            {displayParsec ? (
-              <div>
-                {parsec} Parsecs is equivalent to {parsecConverter} light years.
-              </div>
-            ) : null}
-          </div>
-        </header>
+          ) : null}
+          <br />
+          <div>Speed of Light to kilometer per hour converter!</div>
+          <InputNumber id="LYH" placeholder="Hour"></InputNumber>{" "}
+          <Button onClick={speedLightConverter}>Calculate</Button>
+          {displayLyh ? (
+            <div>
+              In {hour} hours the light travels {lyhConverter} kms.
+            </div>
+          ) : null}
+          <br />
+          <div> Parsec to Light Year convertion</div>
+          <InputNumber id="PARSEC" placeholder="Parsec"></InputNumber>{" "}
+          <Button onClick={parsecToLightYear}>Calculate</Button>
+          {displayParsec ? (
+            <div>
+              {parsec} Parsecs is equivalent to {parsecConverter} light years.
+            </div>
+          ) : null}
+        </div>
       </motion.div>
     </div>
   );

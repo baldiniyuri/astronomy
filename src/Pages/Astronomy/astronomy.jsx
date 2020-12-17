@@ -1,6 +1,4 @@
-import "../../App.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button, DatePicker } from "antd";
 import AstronomyList from "../../Components/Astronomy/astronomylist";
@@ -8,12 +6,6 @@ import { getAstronomyPhotoThank } from "../../Store/Modules/Astronomy/thunk";
 import { useDispatch } from "react-redux";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "../../Style/astronomy.css";
-import {
-  GlobalOutlined,
-  HomeOutlined,
-  CalculatorOutlined,
-  RedditOutlined,
-} from "@ant-design/icons";
 
 const Astronomy = () => {
   //**********************************************Variables Declarations *******************************************************/
@@ -27,8 +19,14 @@ const Astronomy = () => {
   const [error, setError] = useState(false);
   const [next, setNext] = useState(0);
   //****************************************************Functions***************************************************************/
-  const getAstronomyPhoto = () => {
-    dispatch(getAstronomyPhotoThank(photoDate, setError));
+  const getAstronomyPhoto = async () => {
+    dispatch(getAstronomyPhotoThank(await photoDate, setError));
+
+    if (hide === false) {
+      setTimeout(() => {
+        displayAstronomy();
+      }, 3000);
+    }
   };
 
   const displayAstronomy = () => {
@@ -62,49 +60,43 @@ const Astronomy = () => {
   };
 
   return (
-    <div className="App">
+    <div>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 2 }}
       >
-        <header className="App-header">
-          <div>
-            <Button>
-              <Link to="/earth">Earth</Link> <GlobalOutlined />
-            </Button>{" "}
-            <Button>
-              <Link to="/">Home</Link> <HomeOutlined />
-            </Button>{" "}
-            <Button>
-              <Link to="/calculations">Calculations</Link>{" "}
-              <CalculatorOutlined />
-            </Button>{" "}
-            <Button>
-              <Link to="/mars">Mars</Link> <RedditOutlined />
-            </Button>
-          </div>
-          <div>Astronomy</div>
+        <div className="titles-astronomy">Astronomy</div>
+        <div className="astronomy-align">
           <div className="astronomyLogo"></div>
-          <div>
-            <Button onClick={prevPhoto}>
-              <ArrowLeftOutlined />
-              Prev Photo!
-            </Button>{" "}
-            <Button onClick={displayAstronomy}>
-              Display Astronomy Image
-            </Button>{" "}
-            <Button onClick={getAstronomyPhoto}>
-              Get Astronomy Photo of the Day!
-            </Button>{" "}
-            <Button onClick={changeDate}>Change Date!</Button>{" "}
-            <DatePicker id="photodate"></DatePicker>{" "}
-            <Button onClick={nextPhoto}>
-              Next Photo!
-              <ArrowRightOutlined />
-            </Button>
+          <div className="display-astronomy-buttons">
+            <div>
+              <Button onClick={prevPhoto} className="astronomy-buttons">
+                <ArrowLeftOutlined />
+                Prev Photo!
+              </Button>{" "}
+              <Button onClick={displayAstronomy} className="astronomy-buttons">
+                Display Astronomy Image
+              </Button>{" "}
+              <Button onClick={getAstronomyPhoto} className="astronomy-buttons">
+                Get Astronomy Photo of the Day!
+              </Button>{" "}
+              <Button onClick={changeDate} className="astronomy-buttons">
+                Change Date!
+              </Button>{" "}
+              <DatePicker
+                id="photodate"
+                className="astronomy-buttons"
+              ></DatePicker>{" "}
+              <Button onClick={nextPhoto} className="astronomy-buttons">
+                Next Photo!
+                <ArrowRightOutlined />
+              </Button>
+            </div>
           </div>
+        </div>
+        <div className="display-astronomy-photo">
           {error ? (
             <div>
               Image not found, this often happens when there is no photos at
@@ -121,7 +113,7 @@ const Astronomy = () => {
               you want.
             </div>
           )}
-        </header>
+        </div>
       </motion.div>
     </div>
   );

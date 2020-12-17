@@ -1,19 +1,10 @@
-import "../../App.css";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button, DatePicker } from "antd";
 import MarsList from "../../Components/Mars/marslist";
 import { getMarsPhotoThank } from "../../Store/Modules/Mars/thank";
 import { useDispatch } from "react-redux";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
-import "../../Style/astronomy.css";
-import {
-  GlobalOutlined,
-  HomeOutlined,
-  CalculatorOutlined,
-  EyeOutlined,
-} from "@ant-design/icons";
 import "../../Style/mars.css";
 
 const Mars = () => {
@@ -26,8 +17,14 @@ const Mars = () => {
   const [error, setError] = useState(false);
   const [next, setNext] = useState(0);
 
-  const getMarsPhoto = () => {
-    dispatch(getMarsPhotoThank(photoDate, setError));
+  const getMarsPhoto = async () => {
+    dispatch(getMarsPhotoThank(await photoDate, setError));
+
+    if (hide === false) {
+      setTimeout(() => {
+        displayMars();
+      }, 3000);
+    }
   };
 
   const displayMars = () => {
@@ -68,38 +65,33 @@ const Mars = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 2 }}
       >
-        <header className="App-header">
-          <div>
-            <Button>
-              <Link to="/earth">Earth</Link> <GlobalOutlined />
-            </Button>{" "}
-            <Button>
-              <Link to="/">Home</Link> <HomeOutlined />
-            </Button>{" "}
-            <Button>
-              <Link to="/calculations">Calculations</Link>{" "}
-              <CalculatorOutlined />
-            </Button>{" "}
-            <Button>
-              <Link to="/astronomy">Astronomy </Link> <EyeOutlined />
-            </Button>
+        <div className="titles-mars">Mars</div>
+        <div className="mars-align">
+          <div className="marsLogo"></div>
+          <div className="display-mars-buttons">
+            <div>
+              <Button onClick={prevPhoto} className="mars-buttons">
+                <ArrowLeftOutlined />
+                Prev Photo!
+              </Button>{" "}
+              <Button onClick={displayMars} className="mars-buttons">
+                Display Mars Image
+              </Button>{" "}
+              <Button onClick={getMarsPhoto} className="mars-buttons">
+                Get Mars Photo of the Day!
+              </Button>{" "}
+              <Button onClick={changeDate} className="mars-buttons">
+                Change Date!
+              </Button>{" "}
+              <DatePicker id="photodate" className="mars-buttons"></DatePicker>{" "}
+              <Button onClick={nextPhoto} className="mars-buttons">
+                Next Photo!
+                <ArrowRightOutlined />
+              </Button>
+            </div>
           </div>
-          <div>Mars</div>
-          <div className="mars"></div>
-          <div>
-            <Button onClick={prevPhoto}>
-              <ArrowLeftOutlined />
-              Prev Photo!
-            </Button>{" "}
-            <Button onClick={displayMars}>Display Mars Image</Button>{" "}
-            <Button onClick={getMarsPhoto}>Get Mars Photo of the Day!</Button>{" "}
-            <Button onClick={changeDate}>Change Date!</Button>{" "}
-            <DatePicker id="photodate"></DatePicker>{" "}
-            <Button onClick={nextPhoto}>
-              Next Photo!
-              <ArrowRightOutlined />
-            </Button>
-          </div>
+        </div>
+        <div className="display-mars-photo">
           {error ? (
             <div>
               Image not found, this often happens when there is no photos at
@@ -116,7 +108,7 @@ const Mars = () => {
               you want.
             </div>
           )}
-        </header>
+        </div>
       </motion.div>
     </div>
   );

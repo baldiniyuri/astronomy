@@ -2,5 +2,57 @@
   background-image: url("./Img/hubble.jpeg");
   width: 225px;
   height: 225px;
-  margin: 0 auto;
+  border-radius: 50%;
+  margin-left: 2%;
+}
+
+.display-astronomy-buttons {
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  background-color: black;
+}
+
+.titles-astronomy {
+  color: #e8f1f2;
+  text-align: center;
+  font-size: 30px;
+}
+
+.display-astronomy-photo {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  background-color: black;
+  padding-left: 2rem;
+}
+
+.astronomy-align {
+  display: flex;
+  padding-left: 25rem;
+  padding-top: 2rem;
+}
+
+.description {
+  color: #e8f1f2;
+  font-size: 25px;
+  text-align: center;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.astronomy-photo-render {
+  padding-left: 35rem;
+}
+
+.astronomy-buttons {
+  margin-top: 1%;
+  padding: 0.5rem;
+  background-color: #222e50 !important;
+  color: #e8f1f2 !important;
+  border-radius: 20% !important;
+}
+
+.astronomy-buttons:hover {
+  background-color: #c9c8e4 !important;
+  color: black !important;
 }
