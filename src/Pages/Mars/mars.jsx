@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button, DatePicker } from "antd";
 import MarsList from "../../Components/Mars/marslist";
@@ -69,26 +69,36 @@ const Mars = () => {
         <div className="mars-align">
           <div className="marsLogo"></div>
           <div className="display-mars-buttons">
-            <div>
-              <Button onClick={prevPhoto} className="mars-buttons">
-                <ArrowLeftOutlined />
-                Prev Photo!
-              </Button>{" "}
-              <Button onClick={displayMars} className="mars-buttons">
-                Display Mars Image
-              </Button>{" "}
-              <Button onClick={getMarsPhoto} className="mars-buttons">
-                Get Mars Photo of the Day!
-              </Button>{" "}
-              <Button onClick={changeDate} className="mars-buttons">
-                Change Date!
-              </Button>{" "}
-              <DatePicker id="photodate" className="mars-buttons"></DatePicker>{" "}
-              <Button onClick={nextPhoto} className="mars-buttons">
-                Next Photo!
-                <ArrowRightOutlined />
-              </Button>
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 3 }}
+            >
+              <div>
+                <Button onClick={prevPhoto} className="mars-buttons">
+                  <ArrowLeftOutlined />
+                  Prev Photo!
+                </Button>{" "}
+                <Button onClick={displayMars} className="mars-buttons">
+                  Display Mars Image
+                </Button>{" "}
+                <Button onClick={getMarsPhoto} className="mars-buttons">
+                  Get Mars Photo of the Day!
+                </Button>{" "}
+                <Button onClick={changeDate} className="mars-buttons">
+                  Change Date!
+                </Button>{" "}
+                <DatePicker
+                  id="photodate"
+                  className="mars-buttons"
+                ></DatePicker>{" "}
+                <Button onClick={nextPhoto} className="mars-buttons">
+                  Next Photo!
+                  <ArrowRightOutlined />
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </div>
         <div className="display-mars-photo">

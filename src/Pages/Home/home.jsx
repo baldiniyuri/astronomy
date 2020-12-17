@@ -14,11 +14,11 @@ const Home = () => {
         <div className="home-align">
           <div className="homeLogo"></div>
           <div className="home-description">
-            This is a website were you can accses three diferent Nasa's API. You
-            can chose de data that you want and see our beautifull planet,
-            photos from Earth taken by de ISS, or if you preffer you can check
-            the new photos that the astronomyc comunnit has sent, or maybe you
-            preffer some amazing photos from Mars, taken by the Mars Hoover
+            This is a website where you can access three different Nasa's API.
+            You can choose de data that you want and see our beautiful planet,
+            photos from Earth taken by de ISS, or if you prefer you can check
+            the new photos that the astronomic community has sent, or maybe you
+            prefer some amazing photos from Mars, taken by the Mars Hoover
             Curiosity.
           </div>
         </div>

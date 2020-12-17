@@ -71,29 +71,42 @@ const Astronomy = () => {
         <div className="astronomy-align">
           <div className="astronomyLogo"></div>
           <div className="display-astronomy-buttons">
-            <div>
-              <Button onClick={prevPhoto} className="astronomy-buttons">
-                <ArrowLeftOutlined />
-                Prev Photo!
-              </Button>{" "}
-              <Button onClick={displayAstronomy} className="astronomy-buttons">
-                Display Astronomy Image
-              </Button>{" "}
-              <Button onClick={getAstronomyPhoto} className="astronomy-buttons">
-                Get Astronomy Photo of the Day!
-              </Button>{" "}
-              <Button onClick={changeDate} className="astronomy-buttons">
-                Change Date!
-              </Button>{" "}
-              <DatePicker
-                id="photodate"
-                className="astronomy-buttons"
-              ></DatePicker>{" "}
-              <Button onClick={nextPhoto} className="astronomy-buttons">
-                Next Photo!
-                <ArrowRightOutlined />
-              </Button>
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 3 }}
+            >
+              <div>
+                <Button onClick={prevPhoto} className="astronomy-buttons">
+                  <ArrowLeftOutlined />
+                  Prev Photo!
+                </Button>{" "}
+                <Button
+                  onClick={displayAstronomy}
+                  className="astronomy-buttons"
+                >
+                  Display Astronomy Image
+                </Button>{" "}
+                <Button
+                  onClick={getAstronomyPhoto}
+                  className="astronomy-buttons"
+                >
+                  Get Astronomy Photo of the Day!
+                </Button>{" "}
+                <Button onClick={changeDate} className="astronomy-buttons">
+                  Change Date!
+                </Button>{" "}
+                <DatePicker
+                  id="photodate"
+                  className="astronomy-buttons"
+                ></DatePicker>{" "}
+                <Button onClick={nextPhoto} className="astronomy-buttons">
+                  Next Photo!
+                  <ArrowRightOutlined />
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </div>
         <div className="display-astronomy-photo">
