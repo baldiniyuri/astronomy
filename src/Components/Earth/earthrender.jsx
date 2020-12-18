@@ -1,4 +1,5 @@
 import React from "react";
+import "../../Style/earth.css";
 
 const EarthRender = ({ photoDate, image, caption }) => {
   console.log(caption);
@@ -8,7 +9,7 @@ const EarthRender = ({ photoDate, image, caption }) => {
   return (
     <div>
       <img src={link} alt="earth" />
-      <div>{caption}</div>
+      <div className="titles-render">{caption}</div>
     </div>
   );
 };

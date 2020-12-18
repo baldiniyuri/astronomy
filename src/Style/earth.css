@@ -45,3 +45,9 @@
   margin-bottom: 2%;
   background-color: black;
 }
+
+.titles-render {
+  color: #e8f1f2;
+  text-align: center;
+  font-size: 20px;
+}
