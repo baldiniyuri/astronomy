@@ -45,7 +45,8 @@
 }
 
 .astronomy-photo-render {
-  padding-left: 35rem;
+  display: flex;
+  justify-content: center;
 }
 
 .astronomy-buttons {

@@ -40,7 +40,8 @@
 }
 
 .mars-photo-render {
-  padding-left: 35rem;
+  display: flex;
+  justify-content: center;
 }
 
 .mars-buttons {
