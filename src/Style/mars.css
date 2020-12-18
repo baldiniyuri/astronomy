@@ -56,3 +56,9 @@
   background-color: #c9c8e4 !important;
   color: black !important;
 }
+
+.mars-render {
+  display: inline-block;
+  border: 1px solid silver;
+  margin: 4px;
+}

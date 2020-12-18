@@ -2,7 +2,7 @@ import React from "react";
 
 const MarsRender = ({ photos }) => {
   return (
-    <div>
+    <div className="mars-render">
       <img src={photos} alt="mars" />
     </div>
   );
