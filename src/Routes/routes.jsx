@@ -12,7 +12,7 @@ import {
   RedditOutlined,
   GithubOutlined,
   LinkedinOutlined,
-  HomeOutlined,
+  RocketOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
@@ -49,7 +49,7 @@ const Routes = () => {
           </Button>{" "}
           <Button className="page-buttons">
             <Link to="/">
-              Home <HomeOutlined />
+              About <RocketOutlined />
             </Link>
           </Button>
         </div>

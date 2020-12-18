@@ -28,5 +28,5 @@
 
 .home-align {
   display: flex;
-  margin-left: 25%;
+  justify-content: center;
 }

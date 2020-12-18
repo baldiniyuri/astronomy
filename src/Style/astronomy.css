@@ -33,8 +33,7 @@
 
 .astronomy-align {
   display: flex;
-  padding-left: 25rem;
-  padding-top: 2rem;
+  justify-content: center;
 }
 
 .description {
