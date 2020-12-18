@@ -5,6 +5,8 @@ import Earth from "../Pages/Earth/earth";
 import Calculations from "../Pages/Calculations/calculations";
 import Trigonometry from "../Components/Calculations/trigonometry";
 import Mars from "../Pages/Mars/mars";
+import About from "../Pages/About/about";
+
 import {
   EyeOutlined,
   GlobalOutlined,
@@ -37,18 +39,18 @@ const Routes = () => {
             </Link>
           </Button>{" "}
           <Button className="page-buttons">
+            <Link to="/mars">
+              Mars <RedditOutlined />
+            </Link>
+          </Button>{" "}
+          <Button className="page-buttons">
             <Link to="/calculations">
               Calculations
               <CalculatorOutlined />
             </Link>
           </Button>{" "}
           <Button className="page-buttons">
-            <Link to="/mars">
-              Mars <RedditOutlined />
-            </Link>
-          </Button>{" "}
-          <Button className="page-buttons">
-            <Link to="/">
+            <Link to="/about">
               About <RocketOutlined />
             </Link>
           </Button>
@@ -62,6 +64,7 @@ const Routes = () => {
           <Route exact path="/calculations" component={Calculations} />
           <Route exact path="/trigonometry" component={Trigonometry} />
           <Route exact path="/mars" component={Mars} />
+          <Route exact path="/about" component={About} />
         </Switch>
       </div>
       <footer className="footer-style">

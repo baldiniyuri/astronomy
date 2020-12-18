@@ -63,7 +63,7 @@ const Trigonometry = () => {
   };
 
   return (
-    <div>
+    <div className="align-trigonometry">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -74,6 +74,8 @@ const Trigonometry = () => {
           <Button>
             <Link to="/calculations">Back to calculations</Link>
           </Button>
+
+          <h1 className="titles">Under construction</h1>
           <div>Spherical Triangle calculator</div>
 
           <div>

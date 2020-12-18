@@ -2,9 +2,10 @@ import { Button, InputNumber } from "antd";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import "../../Style/trigonometry.css";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Calculations = () => {
+  const history = useHistory();
   const [pure, setPure] = useState(0);
   const [hour, setHour] = useState(0);
   const [lyConverter, setLyConverter] = useState(0);
@@ -46,7 +47,7 @@ const Calculations = () => {
   };
 
   return (
-    <div>
+    <div className="calculation-master">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -103,6 +104,14 @@ const Calculations = () => {
               {parsec} Parsecs is equivalent to {parsecConverter} light years.
             </div>
           ) : null}
+          <div className="link">
+            <Button
+              onClick={() => history.push("/trigonometry")}
+              className="input-buttons"
+            >
+              Trigonometry
+            </Button>
+          </div>
         </div>
       </motion.div>
     </div>
