@@ -1,31 +1,31 @@
 .trigonometry {
   background-image: url("./Img/s086730a.gif");
-  width: 288px;
-  height: 285px;
+  width: 18rem;
+  height: 17.813rem;
   margin: 0 auto;
 }
 
 .speed {
   background-image: url("./Img/speed.gif");
-  width: 500px;
-  height: 150px;
+  width: 31.25rem;
+  height: 9.375rem;
   margin: 0 auto;
 }
 
 .titles-calculation {
   color: #e8f1f2;
   text-align: center;
-  font-size: 25px;
+  font-size: 1.563rem;
 }
 
 .description-calculation {
   color: #e8f1f2;
   text-align: center;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .input-buttons {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   background-color: #3449e5 !important;
   color: #e8f1f2 !important;
   border-radius: 20% !important;

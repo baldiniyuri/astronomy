@@ -1,7 +1,7 @@
 .marsLogo {
   background-image: url("./Img/mars.jpg");
-  width: 225px;
-  height: 225px;
+  width: 14.063rem;
+  height: 14.063rem;
   margin-left: 2%;
 }
 
@@ -16,7 +16,7 @@
 .titles-mars {
   color: #e8f1f2;
   text-align: center;
-  font-size: 30px;
+  font-size: 1.875rem;
 }
 
 .display-mars-photo {
@@ -34,7 +34,7 @@
 
 .description-mars {
   color: #e8f1f2;
-  font-size: 25px;
+  font-size: 1.563rem;
   text-align: center;
   padding-left: 4rem;
   padding-right: 4rem;

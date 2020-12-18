@@ -1,7 +1,7 @@
 .titles-home {
   color: #e8f1f2;
   text-align: center;
-  font-size: 50px;
+  font-size: 3.125rem;
   margin-bottom: 2%;
 }
 
@@ -11,18 +11,18 @@
 
 .homeLogo {
   background-image: url("./Img/home.jpg");
-  width: 728px;
-  height: 446px;
+  width: 45.5rem;
+  height: 27.875rem;
   margin-left: 2%;
-  background-size: 726px 446px;
+  background-size: 45.5rem 27.875rem;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .home-description {
-  width: 400px;
+  width: 25rem;
   color: #e8f1f2;
-  font-size: 25px;
+  font-size: 1.563rem;
   padding-left: 2rem;
 }
 

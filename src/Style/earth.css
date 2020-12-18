@@ -1,14 +1,14 @@
 .earthLogo {
   background-image: url("./Img/earth.jpg");
-  width: 225px;
-  height: 225px;
+  width: 14.063rem;
+  height: 14.063rem;
   margin-left: 2%;
 }
 
 .titles-earth {
   color: #e8f1f2;
   text-align: center;
-  font-size: 30px;
+  font-size: 1.875rem;
 }
 
 .display-earth-photo {
@@ -16,7 +16,7 @@
   justify-content: center;
   background-color: black;
   overflow-y: scroll;
-  max-height: 800px;
+  max-height: 50rem;
   max-width: 100%;
 }
 
