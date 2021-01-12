@@ -42,16 +42,16 @@ const Earth = () => {
     if (next === 31) {
       return;
     }
+    getEarthPhoto();
     setNext(next + 1);
-    console.log(next);
   };
 
   const prevPhoto = () => {
     if (next === 0) {
       return;
     }
+    getEarthPhoto();
     setNext(next - 1);
-    console.log(next);
   };
 
   const changeDate = () => {

@@ -111,8 +111,8 @@ const Astronomy = () => {
         </div>
         <div className="display-astronomy-photo">
           {error ? (
-            <div>
-              Image not found, this often happens when there is no photos at
+            <div className="description">
+              Image not found, this often happens when there are no images at
               this date, try another one.
             </div>
           ) : null}

@@ -1,6 +1,7 @@
 .astronomy-master {
   width: 100%;
   height: 100%;
+  background-color: black;
 }
 
 .astronomyLogo {
@@ -60,4 +61,10 @@
 .astronomy-buttons:hover {
   background-color: #c9c8e4 !important;
   color: black !important;
+}
+
+.list-render {
+  width: 100%;
+  height: 100%;
+  background-color: black;
 }
